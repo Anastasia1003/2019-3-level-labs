@@ -5,7 +5,7 @@ import datetime
 import io
 from bs4 import BeautifulSoup
 
-page_url = 'https://lena-miro.ru'
+page_url = 'https://lena-miro.ru/?skip=10'
 
 
 def get_html_page(page_url):
