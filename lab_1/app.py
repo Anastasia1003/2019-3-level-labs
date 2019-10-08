@@ -3,21 +3,8 @@ import parser
 import json
 
 app = Flask(__name__)
-page_url = 'https://www.livejournal.com/category/nauka-i-tehnika/'
+page_url = 'https://vc.ru'
 
-
-#@app.route('/')
-#def hello_world():
-#   html_page = parser.get_html_page(page_url)
-#  articles = parser.find_articles(html_page)
-#    result = parser.publish_report('', articles)
-
- #   return result
-
-
-# @app.route('/report/<result>')
-# def print_rep(result):
-#   return render_template("report.html", result=result)
 @app.route('/')
 def start():
     parser.publish_report('articles.json',
