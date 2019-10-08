@@ -17,7 +17,7 @@ def find_articles(html_page):
 
     soup = BeautifulSoup(lj_content)
     articles = list()
-    for article in soup.find_all('h2'):
+    for article in soup.find_all('h3'):
         text = article.text.strip()
         articles.append(text)
     return articles
