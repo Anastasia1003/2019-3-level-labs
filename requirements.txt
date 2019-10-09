@@ -1,3 +1,4 @@
+simplejson
 validators
 flask
 bs4

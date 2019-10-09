@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 import requests
-import simplejson as json
+import json
 import datetime
 import io
 from bs4 import BeautifulSoup
