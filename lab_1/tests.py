@@ -49,14 +49,14 @@ class TestCrawler(unittest.TestCase):
               "articles": articles}
         path = "lab_1/articles.json"
         publish_report(path, result)
-        with open(path, 'r', encoding="UTF-8") as headers_content:
-            content = json.load(headers_content)
-        self.assertTrue(validators.url(content["url"]))
+        with open(path, 'r', encoding="UTF-8") as h_content:
+            data = json.load(h_content.read())
+        self.assertTrue(validators.url(data["url"]))
         try:
-            creation_date_datetime = datetime.datetime.strptime(content["creationDate"], '%Y-%m-%d').date()
+            creation_date_datetime = datetime.datetime.strptime(data["creationDate"], '%Y-%m-%d').date()
         except ValueError:
             print('Invalid date!')
-        self.assertNotEqual(len(content["articles"]), 0)
+        self.assertNotEqual(len(data["articles"]), 0)
 
     if __name__ == '__main__':
         unittest.main()
