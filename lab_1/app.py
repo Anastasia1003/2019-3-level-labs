@@ -7,10 +7,10 @@ page_url = 'https://vc.ru'
 
 @app.route('/')
 def start():
-    parser.publish_report('articles.json',
+    parser.publish_report('/Users/apple/PycharmProjects/2019-3-level-labs/lab_1/main/articles.json',
                           parser.find_articles(
-                              parser.get_html_page('https://www.livejournal.com/category/nauka-i-tehnika/')))
-    with open("articles.json", "r") as read_file:
+                              parser.get_html_page('https://vc.ru')))
+    with open("/Users/apple/PycharmProjects/2019-3-level-labs/lab_1/main/articles.json", "r") as read_file:
         data = json.load(read_file)
         link = data["url"]
         articles = data["articles"]
