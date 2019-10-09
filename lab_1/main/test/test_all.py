@@ -7,7 +7,7 @@ from lab_1.main.parser import get_html_page, find_articles, publish_report
 
 class TestCrawler(unittest.TestCase):
     def setUp(self):
-        page = open("/Users/apple/PycharmProjects/2019-3-level-labs/lab_1/main/test/vc.html", "r", encoding="UTF-8")
+        page = open("lab_1/main/test/vc.html", "r", encoding="UTF-8")
         page_content = page.read()
         page.close()
         self.url = 'https://vc.ru/'
@@ -57,7 +57,7 @@ class TestCrawler(unittest.TestCase):
         result = {"url": self.url,
                   "creationDate": datetime.datetime.now().strftime("%b %m, %Y, %H:%M"),
                   "articles": self.array}
-        path = "/Users/apple/PycharmProjects/2019-3-level-labs/lab_1/articles.json"
+        path = "lab_1/articles.json"
         publish_report(path, result)
         with open(path, 'r', encoding="UTF-8") as headers_content:
             content = json.load(headers_content)
