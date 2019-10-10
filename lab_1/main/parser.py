@@ -14,7 +14,7 @@ def get_html_page(page_url):
 
 def find_articles(html_page):
 
-    soup = BeautifulSoup(html_page)
+    soup = BeautifulSoup(html_page, 'html.parser')
     articles = []
 
     for article in soup.find_all('h2'):
