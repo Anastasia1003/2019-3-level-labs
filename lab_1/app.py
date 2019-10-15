@@ -1,9 +1,10 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, redirect, url_for
 from main import parser
 import json
 
 app = Flask(__name__)
 page_url = 'https://vc.ru'
+
 
 @app.route('/')
 def start():
@@ -15,7 +16,10 @@ def start():
         link = data["url"]
         articles = data["articles"]
     return render_template('report.html', link=link, list=articles)
+@app.route('/refresh', methods=['POST'])
 
+def refresh():
+    return redirect(url_for('start'))
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=8000, debug=True)
