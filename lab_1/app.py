@@ -18,6 +18,7 @@ def start():
     return render_template('report.html', link=link, list=articles)
 @app.route('/refresh', methods=['POST'])
 
+
 def refresh():
     return redirect(url_for('start'))
 
