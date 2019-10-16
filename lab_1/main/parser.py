@@ -14,7 +14,7 @@ def get_html_page(page_url):
 
 def find_articles(html_page):
 
-    soup = BeautifulSoup(html_page, 'html.parser')
+    soup = BeautifulSoup(html_page.text, 'html.parser')
     articles = []
 
     for article in soup.find_all('h2'):
@@ -34,5 +34,5 @@ def publish_report(path, articles):
 
 
 html_page = get_html_page(page_url)
-articles = find_articles(html_page.text)
+articles = find_articles(html_page)
 publish_report(path, articles)
