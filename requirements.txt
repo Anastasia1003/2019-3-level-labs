@@ -3,3 +3,4 @@ validators
 flask
 bs4
 requests
+gunicorn
