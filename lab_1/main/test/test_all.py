@@ -5,9 +5,10 @@ import validators
 from lab_1.main.parser import get_html_page, find_articles, publish_report
 
 
+
 class TestCrawler(unittest.TestCase):
     def setUp(self):
-        page = open("lab_1/main/test/BAR.htm", "r", encoding="UTF-8")
+        page = open("/Users/apple/PycharmProjects/2019-3-level-labs/lab_1/main/test/BAR.htm", "r", encoding="UTF-8")
         page_content = page.read()
         page.close()
         self.url = 'http://thenoisetier.com/blog/tag/BAR'
@@ -27,7 +28,12 @@ class TestCrawler(unittest.TestCase):
                       {'title': 'Как устроить идеальный бранч с подругами?'}]
 
     def test_get_html_page(self):
-        self.assertNotEqual(get_html_page(self.url).status_code, 200)
+        a2 = get_html_page('http://thenoisetier.com/blog/tag/BARrrrr')
+        print(a2)
+        self.assertEqual(a2.status_code, 404)
+        self.assertEqual(get_html_page(self.url).status_code, 200)
+
+
 
     def test_find_articles(self):
         self.assertListEqual(find_articles(self.html), self.array)
@@ -37,7 +43,7 @@ class TestCrawler(unittest.TestCase):
         result = {"url": self.url,
                   "creationDate": creation_date,
                   "articles": self.array}
-        path = "lab_1/articles.json"
+        path = "/Users/apple/PycharmProjects/2019-3-level-labs/lab_1/main/articles.json"
         publish_report(path, result)
         with open(path, 'r', encoding="UTF-8") as headers_content:
             content = json.load(headers_content)
@@ -47,6 +53,7 @@ class TestCrawler(unittest.TestCase):
         except ValueError:
             print('Invalid date!')
         self.assertNotEqual(len(content["articles"]), 0)
+
 
     if __name__ == '__main__':
         unittest.main()
