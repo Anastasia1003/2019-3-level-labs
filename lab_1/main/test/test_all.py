@@ -43,7 +43,7 @@ class TestCrawler(unittest.TestCase):
         result = {"url": self.url,
                   "creationDate": creation_date,
                   "articles": self.array}
-        path = "/Users/apple/PycharmProjects/2019-3-level-labs/lab_1/main/articles.json"
+        path = "lab_1/main/articles.json"
         publish_report(path, result)
         with open(path, 'r', encoding="UTF-8") as headers_content:
             content = json.load(headers_content)
