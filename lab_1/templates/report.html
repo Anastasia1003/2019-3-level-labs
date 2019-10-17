@@ -7,9 +7,13 @@
 <body>
 <h3>{{link}}</h3>
 <ol>
-    {% for article in list %}
+    
+ {% for article in articles %}
+    <li class="titles">
+        {{ loop.index }}.
+        {{ article['title'] }}
 
-<li>{{ article}}</li>
+    </li>
     {% endfor %}
 </ol>
 <form method="post", action="/refresh" >
