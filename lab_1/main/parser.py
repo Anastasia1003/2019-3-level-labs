@@ -5,7 +5,7 @@ import datetime
 import io
 from bs4 import BeautifulSoup
 
-page_url = 'http://thenoisetier.com/'
+page_url = 'http://thenoisetier.com/blog/tag/BAR'
 path = "articles.json"
 
 def get_html_page(page_url):
