@@ -27,7 +27,7 @@ class TestCrawler(unittest.TestCase):
                       {'title': 'Как устроить идеальный бранч с подругами?'}]
 
     def test_get_html_page(self):
-        self.assertEqual(get_html_page(self.url).status_code, 200)
+        self.assertNotEqual(get_html_page(self.url).status_code, 200)
 
     def test_find_articles(self):
         self.assertListEqual(find_articles(self.html), self.array)
