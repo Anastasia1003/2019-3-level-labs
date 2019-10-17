@@ -15,11 +15,9 @@ def get_html_page(page_url):
 def find_articles(html_page):
 
     soup = BeautifulSoup(html_page, 'html.parser')
-    articles = []
-
-    for article in soup.find_all('h2'):
-        text = article.text.strip()
-        articles.append(text)
+    soup = soup.find_all('h2')
+    headers = [header.get_text() for header in soup]
+    articles = [{"title": header} for header in headers]
     return articles
 
 
