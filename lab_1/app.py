@@ -4,14 +4,14 @@ from app import app
 import json
 
 app = Flask(__name__)
-page_url = 'https://thenoisetier.com/'
+page_url = 'http://thenoisetier.com/blog/tag/BAR'
 
 
 @app.route('/')
 def start():
     parser.publish_report('/Users/apple/PycharmProjects/2019-3-level-labs/lab_1/main/articles.json',
                           parser.find_articles(
-                              parser.get_html_page('http://thenoisetier.com/')))
+                              parser.get_html_page('http://thenoisetier.com/blog/tag/BAR')))
     with open("/Users/apple/PycharmProjects/2019-3-level-labs/lab_1/main/articles.json", "r") as read_file:
         data = json.load(read_file)
         link = data["url"]
