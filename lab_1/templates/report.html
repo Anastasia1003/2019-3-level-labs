@@ -8,13 +8,10 @@
 <h3>{{link}}</h3>
 <ol>
     
- {% for article in articles %}
-    <li class="titles">
-        {{ loop.index }}.
-        {{ article['title'] }}
-
-    </li>
+    {% for statya, article in articles %}
+        <li>{{ statya: }}: {{ article['title'] }}</li>
     {% endfor %}
+    
 </ol>
 <form method="post", action="/refresh" >
     <button name="refresh" type="submit">Обновить</button>
