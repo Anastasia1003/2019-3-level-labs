@@ -8,10 +8,10 @@ page_url = 'http://thenoisetier.com/blog/tag/BAR'
 
 @app.route('/')
 def start():
-    parser.publish_report('lab_1/main/articles.json',
+    parser.publish_report('/Users/apple/PycharmProjects/2019-3-level-labs/lab_1/main/articles.json',
                           parser.find_articles(
                               parser.get_html_page('http://thenoisetier.com/blog/tag/BAR').text))
-    with open("lab_1/main/articles.json", "r") as read_file:
+    with open("/Users/apple/PycharmProjects/2019-3-level-labs/lab_1/main/articles.json", "r") as read_file:
         data = json.load(read_file)
         link = data["url"]
         articles = data["articles"]
@@ -23,4 +23,4 @@ def refresh():
     return redirect(url_for('start'))
 
 if __name__ == "__main__":
-    app.run(host='127.0.0.1', port=5000, debug=True)
+    app.run(host='127.0.0.1', port=5000)
