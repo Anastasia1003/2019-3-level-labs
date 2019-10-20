@@ -5,15 +5,19 @@
     <title>List of articles</title>
 </head>
 <body>
+<h3>{{link}}</h3>
 <div>
 
-    {% for article in articles %}
+    {% for article in list %}
     <div class="titles">
         {{ loop.index }}.
-        {{ article['title'] }}
+        statya: {{article['title'] }}
 
     </div>
     {% endfor %}
 </div>
+<form method="post", action="/refresh" >
+    <button name="refresh" type="submit">Обновить</button>
+</form>
 </body>
 </html>

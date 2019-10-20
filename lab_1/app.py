@@ -1,6 +1,5 @@
 from flask import Flask, render_template, redirect, url_for
 from main import parser
-from app import app
 import json
 
 app = Flask(__name__)
@@ -11,7 +10,7 @@ page_url = 'http://thenoisetier.com/blog/tag/BAR'
 def start():
     parser.publish_report('/Users/apple/PycharmProjects/2019-3-level-labs/lab_1/main/articles.json',
                           parser.find_articles(
-                              parser.get_html_page('http://thenoisetier.com/blog/tag/BAR')))
+                              parser.get_html_page('http://thenoisetier.com/blog/tag/BAR').text))
     with open("/Users/apple/PycharmProjects/2019-3-level-labs/lab_1/main/articles.json", "r") as read_file:
         data = json.load(read_file)
         link = data["url"]
