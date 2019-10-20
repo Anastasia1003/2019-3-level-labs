@@ -8,7 +8,7 @@ from lab_1.main.parser import get_html_page, find_articles, publish_report
 
 class TestCrawler(unittest.TestCase):
     def setUp(self):
-        page = open("lab_1/main/test/BAR.htm", "r", encoding="UTF-8")
+        page = open("/Users/apple/PycharmProjects/2019-3-level-labs/lab_1/main/test/BAR.htm", "r", encoding="UTF-8")
         page_content = page.read()
         page.close()
         self.url = 'http://thenoisetier.com/blog/tag/BAR'
